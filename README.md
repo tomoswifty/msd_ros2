@@ -36,28 +36,28 @@ LiDAR
 
 ## Install
 ROS2 ワークスペースのためのディレクトリを作成．`ros2_ws`がすでにある場合はこの手順は不要．
-```
+```bash
 mkdir -p ros2_ws/src && cd ros2_ws/src
 ```
 
 リポジトリのダウンロード
-```
+```bash
 git clone https://github.com/tomoswifty/msd_ros2.git
 ```
 
 ROS2のインストール．ROS2をインストールしてあれば不要．
-```
+```bash
 cd ~/ros2_ws/src/msd_ros2/msd_ros2_installer/
 ./ros2_foxy-desktop_installer.sh
 ```
 
 依存パッケージのインストール
-```
+```bash
 
 ```
 
 センサーのパッケージのインストール
-```
+```bash
 
 ```
 
