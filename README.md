@@ -1,23 +1,64 @@
 # msd_ros2
-Development directory for msd ros2 version
+development for msd version ROS2
 
-/msd_ros2_installer はROS2とMSDの自律移動に関する依存パッケージのインストールスクリプトです．
+やること
+- 自動運転
+  - LiDAR
+  - 障害物回避 
+- 画像認識
+- トンネル内自動走行
+## Dependency
+- Ubuntu 20.04.6 LTS
+- ROS2 Foxy Fitzroy
 
-SLAM，Navigation2，micro-ROS for Arduinoなどのパッケージをインストールします．
+## Devices
+- Jetson Nano B01 
 
-/msd_ros2_mk1 ROS2 package はROS2パッケージで，ソースコードがあります．
+LiDAR
+- rplidar a1
+- rplidar s1
+- HOKUYO URM-40LC-EW
 
-## 実行
+## Directories
+### msd_ros2_mk1 : オリエンタルモータ
+<br/>
+<div align="center">
+<img src="./photo/100x.png" width="300"/>
+</div>
+<br/>
 
+### msd_ros2_mk2 : 椿本モータ
+<br/>
+<div align="center">
+<img src="./photo/msd_mk2.JPG" width="300"/>
+</div>
+<br/>
 
-jetson = MSD700 で起動しないと動かないノード
+## Install
+ROS2 ワークスペースのためのディレクトリを作成．`ros2_ws`がすでにある場合はこの手順は不要．
 ```
-# micro-ros 起動
-ros2 run micro_ros_agent micro_ros_agent serial --dev /dev/ttyUSB0 -v6
+mkdir -p ros2_ws/src && cd ros2_ws/src
+```
 
+リポジトリのダウンロード
+```
+git clone https://github.com/tomoswifty/msd_ros2.git
+```
+
+ROS2のインストール．ROS2をインストールしてあれば不要．
+```
+cd ~/ros2_ws/src/msd_ros2/msd_ros2_installer/
+./ros2_foxy-desktop_installer.sh
+```
+
+依存パッケージのインストール
+```
 
 ```
 
+センサーのパッケージのインストール
+```
 
+```
 
-PCで起動(できる)ノード
+## Usage
