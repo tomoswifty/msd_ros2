@@ -3,7 +3,7 @@ from rclpy.node import Node
 from geometry_msgs.msg import Twist # , TransformStamped
 from nav_msgs.msg import Odometry
 from tf_transformations import quaternion_from_euler
-from tf2_ros import TransformBroadcaster # -.transform_broadcaster
+from tf2_ros import TransformBroadcaster # _.transform_broadcaster
 import serial
 import time
 import math
@@ -24,8 +24,8 @@ class MotorDrive(Node):
         self.period = timer_period
         self.timer = self.create_timer(timer_period, self.timer_callback)
         
-        # serial communicate to esp32-s3
-        ## set /dev/ttyUSB0 for lidar RPLiDAR S1, set /dev/ttyUSB1 for esp32-s3
+        # serial communicate to esp32_s3
+        ## set /dev/ttyUSB0 for lidar RPLiDAR S1, set /dev/ttyUSB1 for esp32_s3
         self.ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) 
 
         # publisher
@@ -48,14 +48,14 @@ class MotorDrive(Node):
         self.ser.write(b',')
         self.ser.write(str(self.angular_z).encode())
         self.ser.write(b'\r\n')
-        # read from esp32-s3
+        # read from esp32_s3
         # self.left_rpm = self.ser.read(str().encode())
         # self.right_rpm = self.ser.read(str().encode())
     
     def timer_callback(self):
         start_time = time.time()
         # odometry
-        # calculate forward kinematics for odometry from esp32-s3 output rpm
+        # calculate forward kinematics for odometry from esp32_s3 output rpm
         V = self.linear_x
         Wz = self.angular_z
 
