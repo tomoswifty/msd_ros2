@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'main_motor = msd_ros2_mk2.main_motor:main',
+            'tsubaki_motor_to_serial = msd_ros2_mk2.tsubaki_motor_to_serial:main',
         ],
     },
 )
