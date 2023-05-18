@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# ros2 tf
+sudo apt install -y ros-foxy-tf-transformations
+pip3 install transforms3d
+
+
 # joystick 
 sudo apt install -y joystick
 sudo apt install -y ros-foxy-teleop-tools ros-foxy-joy*
