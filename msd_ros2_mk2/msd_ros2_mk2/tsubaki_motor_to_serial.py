@@ -26,7 +26,7 @@ class MotorDrive(Node):
         
         # serial communicate to esp32_s3
         ## set /dev/ttyUSB0 for lidar RPLiDAR S1, set /dev/ttyUSB1 for esp32_s3
-        self.ser = serial.Serial('/dev/ttyUSB0', 115200, timeout=None) 
+        self.ser = serial.Serial('/dev/ttyUSB1', 115200, timeout=None) 
 
         # publisher
         self.odom_pub = self.create_publisher(Odometry, '/odom', 10)
@@ -68,7 +68,7 @@ class MotorDrive(Node):
 
         self.odom_msg.header.stamp = self.get_clock().now().to_msg()
         self.odom_msg.header.frame_id = "odom"
-        self.odom_msg.child_frame_id = "base_link"    # or "base_footprint" or "base_link"
+        self.odom_msg.child_frame_id = "base_footprint"    # or "base_footprint" or "base_link"
         self.odom_msg.pose.pose.position.x = self.x
         self.odom_msg.pose.pose.position.y = self.y
         self.odom_msg.pose.pose.position.z = 0.0
